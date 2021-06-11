@@ -27,7 +27,7 @@ async def on_message(message):
     msg = message.content
     SEX = ["SEX", "SEx", "SeX", "sEX", "Sex", "sEx", "seX", "sex"]
     
-    SEXExp = "(?i)((?<!no )[s][e€£][x](?!\S))|(\A([S][e€£][x]))"
+    SEXExp = "(?i)(\A[s][e€£][x]$)|(\A[s][e€£][x]\s)|((?<!no)[\s][s][e€£][x](?!\S))"
     
     contains = re.search(SEXExp, msg)
     
