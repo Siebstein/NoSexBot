@@ -6,21 +6,11 @@ Created on Fri Apr  9 21:09:54 2021
 """
 import os
 import discord
-#import nest_asyncio
+import re
 from dotenv import load_dotenv
-from urllib.parse import urlparse
-from deepdream import getdeepdream
-
-
-#nest_asyncio.apply()
-
-
-    
-
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
-
 client = discord.Client()
 
 
@@ -34,10 +24,20 @@ async def on_message(message):
     if message.author == client.user:
         return
     
+    msg = message.content
     SEX = ["SEX", "SEx", "SeX", "sEX", "Sex", "sEx", "seX", "sex"]
     
+    SEXExp = "(?i)((?<!no )[s][e€£][x](?!\S))|(\A([S][e€£][x]))"
+    
+    contains = re.search(SEXExp, msg)
+    
+    """
     for sex in SEX:
         if sex in message.content:
             await message.channel.send("NO SEX!")
+    """
+    
+    if contains:
+        await message.channel.send("NO SEX!")
 
 client.run(TOKEN)
