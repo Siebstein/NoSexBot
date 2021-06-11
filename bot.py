@@ -18,6 +18,7 @@ client = discord.Client()
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     print("Koodi: ", "https://discord.com/api/oauth2/authorize?client_id=852906538242801686&permissions=0&scope=bot")
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.custom, state="Watching over the virgins"))
 
 @client.event
 async def on_message(message):
@@ -27,7 +28,7 @@ async def on_message(message):
     msg = message.content
     SEX = ["SEX", "SEx", "SeX", "sEX", "Sex", "sEx", "seX", "sex"]
     
-    SEXExp = "(?i)(\A[s][e€£][x]$)|(\A[s][e€£][x]\s)|((?<!no)[\s][s][e€£][x](?!\S))"
+    SEXExp = "(?i)(\A[s]+[e€3£]+[x]+$)|(\A[s]+[e3€£]+[x]+\s)|((?<!no)[\s][s]+[e3€£]+[x]+(?!\S))"
     
     contains = re.search(SEXExp, msg)
     
