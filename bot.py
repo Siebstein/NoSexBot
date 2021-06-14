@@ -11,34 +11,52 @@ from dotenv import load_dotenv
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
+URL = os.getenv('INV_URL')
 client = discord.Client()
 
 
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
-    print("Koodi: ", "https://discord.com/api/oauth2/authorize?client_id=852906538242801686&permissions=0&scope=bot")
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.custom, state="Watching over the virgins"))
+    print("Koodi: ", URL)
+    status = discord.Game("with the virgins' cocks")
+    await client.change_presence(status=discord.Status.idle, activity=status)
+
+"""
+buffer = ""
+"""
 
 @client.event
 async def on_message(message):
     if message.author == client.user:
         return
+
+    msg = message.content.lower()
     
-    msg = message.content
-    SEX = ["SEX", "SEx", "SeX", "sEX", "Sex", "sEx", "seX", "sex"]
+    """    
+    global buffer
+    buffer = buffer + msg
+    
+    if  "nigger" in buffer:
+        await message.channel.send("YO! You did not have the N word pass!!")
+        buffer = ""
+        return
+    """
     
     SEXExp = "(?i)(\A[s]+[e€3£]+[x]+$)|(\A[s]+[e3€£]+[x]+\s)|((?<!no)[\s][s]+[e3€£]+[x]+(?!\S))"
+    SEXbot = "(?i)[s]+[e3€£]+[x]\sbot"
+    found_sex_bot=re.search(SEXbot, msg)   
     
-    contains = re.search(SEXExp, msg)
+    if found_sex_bot:
+        msg = msg.replace("sex bot", " ")
+
+
+    found_sex = re.search(SEXExp, msg)
     
-    """
-    for sex in SEX:
-        if sex in message.content:
-            await message.channel.send("NO SEX!")
-    """
+    #if found_sex_bot and not found_sex:
+    #   return
     
-    if contains:
+    if found_sex:
         await message.channel.send("NO SEX!")
 
 client.run(TOKEN)
