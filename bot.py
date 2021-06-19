@@ -43,7 +43,7 @@ async def on_message(message):
         return
     """
     
-    SEXExp = "(?i)(\A[s]+[e€3£]+[x]+$)|(\A[s]+[e3€£]+[x]+\s)|((?<!no)[\s][s]+[e3€£]+[x]+(?!\S))"
+    SEXExp = "(?i)(\A[s]+[e€3£]+[x]+[!?]*$)|(\A[s]+[e3€£]+[x]+[!?]*\s)|((?<!no)[\s][s]+[e3€£]+[x]+[!?]*(?!\S))"
     SEXbot = "(?i)[s]+[e3€£]+[x]\sbot"
     found_sex_bot=re.search(SEXbot, msg)   
     
