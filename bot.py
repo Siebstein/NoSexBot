@@ -60,8 +60,10 @@ async def on_message(message):
     
     DOGExp = "(?i)(\A[d]+[o]+[g]+[!?]*$)|(\A[d]+[o]+[g]+[!?]*\s)"
     found_dog = re.search(DOGExp, msg)
+    
+    emoji = discord.utils.get(client.emojis, name='DelightfulDog')
     if found_dog:
-        await message.channel.send("what da dog doin? <:DelightfulDog:64146802207227905>")
+        await message.channel.send("what da dog doin?" + str(emoji))
     
     if found_sex:
         await message.channel.send("NO SEX!")
