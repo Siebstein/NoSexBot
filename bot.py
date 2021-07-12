@@ -61,7 +61,7 @@ async def on_message(message):
     DOGExp = "(?i)(\A[d]+[o]+[g]+[!?]*$)|(\A[d]+[o]+[g]+[!?]*\s)"
     found_dog = re.search(DOGExp, msg)
     if found_dog:
-        await message.channel.send("what da dog doin?")
+        await message.channel.send("what da dog doin? <:DelightfulDog:64146802207227905>")
     
     if found_sex:
         await message.channel.send("NO SEX!")
