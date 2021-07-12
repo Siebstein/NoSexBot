@@ -19,7 +19,7 @@ client = discord.Client()
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     print("Koodi: ", URL)
-    status = discord.Game("with the virgins' cocks")
+    status = discord.Game("with the virgins' dogs")
     await client.change_presence(status=discord.Status.online, activity=status)
 
 """
