@@ -59,7 +59,7 @@ async def on_message(message):
     if found_sex:
         await message.channel.send("NO SEX!")
         
-    if msg.contains("dog"):
+    if "dog" in msg:
         await message.channel.send("what da dog doin? :DelightfulDog:")
 
 client.run(TOKEN)
