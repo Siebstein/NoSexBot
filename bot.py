@@ -43,6 +43,11 @@ async def on_message(message):
         return
     """
     
+    DOGExp = "(?i)(\A[d]+[o]+[g]+[!?]*$)|(\A[d]+[o]+[g]+[!?]*\s)"
+    found_dog = re.search(DOGExp, msg)
+    if found_dog:
+        await message.channel.send("what da dog doin?")
+    
     SEXExp = "(?i)(\A[s]+[e€3£]+[x]+[!?]*$)|(\A[s]+[e3€£]+[x]+[!?]*\s)|((?<!no)[\s][s]+[e3€£]+[x]+[!?]*(?!\S))"
     SEXbot = "(?i)[s]+[e3€£]+[x]\sbot"
     found_sex_bot=re.search(SEXbot, msg)   
@@ -59,10 +64,7 @@ async def on_message(message):
     if found_sex:
         await message.channel.send("NO SEX!")
         
-    DOGExp = "(?i)(\A[d]+[o]+[g]+[!?]*$)|(\A[d]+[o]+[g]+[!?]*\s)"
-    found_dog = re.search(DOGExp, msg)
-    if found_dog:
-        await message.channel.send("what da dog doin?")
+
         
     """    
     if "dog" in msg:
