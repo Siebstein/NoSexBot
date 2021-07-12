@@ -63,7 +63,7 @@ async def on_message(message):
     
     emoji = discord.utils.get(client.emojis, name='DelightfulDog')
     if found_dog:
-        await message.channel.send("what da dog doin?" + str(emoji))
+        await message.channel.send("what da dog doin? " + str(emoji))
     
     if found_sex:
         await message.channel.send("NO SEX!")
