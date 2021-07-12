@@ -58,7 +58,14 @@ async def on_message(message):
     #if found_sex_bot and not found_sex:
     #   return
     
-    DOGExp = "(?i)(\A[d]+[o]+[g]+[!?]*$)|(\A[d]+[o]+[g]+[!?]*\s)"
+    DOGExp = "(?i)(\A[d]+[o]+[g]+[!?]*$)|(\A[d]+[o]+[g]+[!?]*\s)|((?<!no)[\s][d]+[o]+[g]+[!?]*(?!\S))"
+    DOGbot = "(?i)[d]+[o]+[g]\sbot"
+    found_dog_bot = re.search(DOGbot, msg)
+    
+    if found_dog_bot:
+        msg = msg.replace("dog bot", " ")
+    
+    
     found_dog = re.search(DOGExp, msg)
     
     emoji = discord.utils.get(client.emojis, name='DelightfulDog')
