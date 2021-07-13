@@ -33,7 +33,7 @@ async def on_message(message):
 
     msg = message.content.lower()
     
-    print(msg)
+    print(message.stickers)
     """    
     global buffer
     buffer = buffer + msg
