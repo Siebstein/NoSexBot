@@ -33,7 +33,7 @@ async def on_message(message):
 
     msg = message.content.lower()
     
-    print(msg)
+    
     """    
     global buffer
     buffer = buffer + msg
@@ -71,7 +71,7 @@ async def on_message(message):
     
     emoji = discord.utils.get(client.emojis, name='DelightfulDog')
     
-    if str(emoji) in msg:
+    if ":delightfuldog:" in msg:
         await message.add_reaction(emoji)
     
     
