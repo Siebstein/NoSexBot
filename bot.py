@@ -33,7 +33,7 @@ async def on_message(message):
 
     msg = message.content.lower()
     
-    print(str(message))
+    
     """    
     global buffer
     buffer = buffer + msg
@@ -70,6 +70,7 @@ async def on_message(message):
     found_dog = re.search(DOGExp, msg)
     
     emoji = discord.utils.get(client.emojis, name='DelightfulDog')
+    
     
     if ":delightfuldog:" in msg:
         await message.add_reaction(emoji)
