@@ -70,7 +70,7 @@ async def on_message(message):
     
     emoji = discord.utils.get(client.emojis, name='DelightfulDog')
     
-    if emoji in msg:
+    if str(emoji) in msg:
         await message.add_reaction(emoji)
     
     
