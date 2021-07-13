@@ -69,6 +69,11 @@ async def on_message(message):
     found_dog = re.search(DOGExp, msg)
     
     emoji = discord.utils.get(client.emojis, name='DelightfulDog')
+    
+    if ':DelightfulDog:' in msg:
+        await message.add_reaction(emoji)
+    
+    
     if found_dog:
         await message.channel.send("what da dog doin? " + str(emoji))
     
